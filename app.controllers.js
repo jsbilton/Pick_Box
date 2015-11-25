@@ -5,33 +5,37 @@
   .controller('MainController', function ($scope) {
 
     })
-    // Admin Controller = PboxController
-  .controller('PboxController', function ($scope, PboxService, LikeService, $routeParams) {
+    // Customer Controller = CustController
+  .controller('CustController', function ($scope, PboxService, CartService, $routeParams) {
     PboxService.getPboxData().then(function (pbox) {
 
       $scope.pbox = pbox; //attaching pbox with scope
     });
-    LikeService.getLikes().success(function (likedAccessories) {
-
-      $scope.likedAccessories = likedAccessories;
-    })
+    // CartService.getLikes().success(function (likedAccessories) {
+    //
+    //   $scope.likedAccessories = likedAccessories;
+    // })
     $scope.likeAccessory = function (accessory) {
-    LikeService.addLikedAccessory(accessory);
+    CartService.addCartAccessory(accessory);
     };
-    if ($routeParams, likedPboxId) { //next is an ajax call
-      LikeService.getSingleAccessory($routeParams.likedPboxId).success(function (likedItem) {
-        $scope.likedItem = likedItem;
-        console.log(likedItem);
+    if ($routeParams, cartPboxId) { //next is an ajax call
+      CartService.getSingleAccessory($routeParams.cartPboxId).success(function (cartItem) {
+        $scope.cartItem = cartItem;
+        console.log(cartItem);
       })
     }
   })
-  // Customer Controller = CustController 
-  .controller('CustController', function ($scope, PboxService, CartService, $routeParams)
+  // Admin Controller = PboxController
+  .controller('AdminController', function ($scope, PboxService, $routeParams)
 
     if ($routeParams.like) {
 
   }{
 
+  })
+
+  .controller('CartController', function ($scope, CartService, $routeParams) {
+    CartService.get
   })
 
 
