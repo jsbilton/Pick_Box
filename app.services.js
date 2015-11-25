@@ -19,5 +19,8 @@
       var removePbox = function (box){
         $http.delete (url + '/' + box._id);
       };
-
+      return {
+        createPbox: addPbox,
+        getPbox: getPbox,
+        deletePbox: delPbox ,
 }());
