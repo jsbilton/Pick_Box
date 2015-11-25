@@ -5,6 +5,7 @@
   .controller('MainController', function ($scope) {
 
     })
+    // Admin Controller = PboxController
   .controller('PboxController', function ($scope, PboxService, LikeService, $routeParams) {
     PboxService.getPboxData().then(function (pbox) {
 
@@ -24,8 +25,13 @@
       })
     }
   })
-  .controller('CustController', function ($scope, PboxService, CartService) {
-    // body...
+  // Customer Controller = CustController 
+  .controller('CustController', function ($scope, PboxService, CartService, $routeParams)
+
+    if ($routeParams.like) {
+
+  }{
+
   })
 
 

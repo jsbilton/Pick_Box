@@ -9,33 +9,68 @@
     .config(function ($routeProvider){
       $routeProvider
       .when('/', {
-        template: '<h1>Pick Box</h1><a href="#/pbox">go to box</a>',
+        template: '<h1>Pick Box</h1><a href="#/admin">You da Admin</a>',
         controller: 'MainController'
       })
-      .when('/pbox', {
-        templateUrl: 'views/pbox/list.html',
-        controller: 'PboxController'
+
+      // Admin
+      .when('/admin', {
+        templateUrl: 'views/admin/list.html',
+        controller: 'AdminController'
       })
-      .when('/pbox:pboxId', {
-        templateUrl: 'views/pbox/detail.html',
-        controller: 'PboxController'
+      .when('/admin:pboxId', {
+        templateUrl: 'views/admin/show.html',
+        controller: 'AdminController'
       })
-      .when('/pbox:pboxId/edit', {
-        templateUrl: 'views/pbox/edit.html',
-        controller: 'PboxController'
+      .when('/admin:pboxId/edit', {
+        templateUrl: 'views/admin/edit.html',
+        controller: 'AdminController'
       })
-      .when('/addAccess', {
-        templateUrl: 'views/pbox/create.html',
-        controller: 'PboxController'
+      .when('/admin:cart',{
+        templateUrl: 'views/admin/cart.html',
+        controller: 'AdminController'
+      })
+      .when('/addAccessories', {
+        templateUrl: 'views/admin/create.html',
+        controller: 'AdminController'
       })
       .when('/likes', {
-        templateUrl: 'views/pbox/list.html',
-        controller: 'PboxController'
+        templateUrl: 'views/admin/list.html',
+        controller: 'AdminController'
       })
-      .when('/likes:likepboxId',{
-        templateUrl: 'views/pbox/detail.html',
-        controller: 'PboxController'
+
+
+// Customer
+      .when('/customer', {
+        templateUrl: 'views/customer/list.html',
+        controller: 'CustController'
       })
+      .when('/customer:pboxId', {
+        templateUrl: 'views/customer/show.html',
+        controller: 'CustController'
+      })
+      .when('/customer:pboxId/edit', {
+        templateUrl: 'views/customer/edit.html',
+        controller: 'CustController'
+      })
+      .when('/customer:cart',{
+        templateUrl: 'views/customer/cart.html',
+        controller: 'CustController'
+      })
+      .when('/addAccessories', {
+        templateUrl: 'views/customer/create.html',
+        controller: 'CustController'
+      })
+      .when('/likes', {
+        templateUrl: 'views/customer/list.html',
+        controller: 'CustController'
+      })
+      .when('/likes:likedPboxId',{
+        templateUrl: 'views/customer/show.html',
+        controller: 'CustController'
+      })
+
+// When bad stuff happens
       .when('/404', {
         templateUrl: 'views/404.html'
       })
